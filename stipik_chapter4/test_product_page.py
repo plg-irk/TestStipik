@@ -1,7 +1,11 @@
 import pytest
+# from .page.main_page import MainPage
 from .page.product_page import ProductPage
+from .page.basket_page import BasketPage
 import time
 from .page.locators import PoductPageLocators
+from .page.locators import BasePageLocators
+
 
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
@@ -64,9 +68,26 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
-    time.sleep(10)
 
 
+def test_product_is_not_in_basket_from_product_page(browser):
+            # Проверяем что корзина пуста
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_basket()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.check_basket_is_empty()
+
+@pytest.mark.xfail
+def test_guest_cant_see_product_in_basket_opened_from_product_page_negative(browser):
+            # Проверяем появился или нет товар в корзине
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_basket()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.product_is_not_in_empty_basket()
 
 
 
