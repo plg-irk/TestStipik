@@ -21,6 +21,7 @@ class PoductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     BUTTON_BASKET = (By.CSS_SELECTOR,'span.btn-group a.btn-default')
     BASKET_IS_EMPTY = (By.CSS_SELECTOR,"#content_inner p:nth-child(1)")
@@ -31,6 +32,6 @@ class LoginPageLocators():
     EMAIL_REGISTRATION = (By.CSS_SELECTOR, "#id_registration-email")
     PASSWORD1_REGISTRATION = (By.CSS_SELECTOR, "#id_registration-password1")
     PASSWORD2_REGISTRATION = (By.CSS_SELECTOR, "#id_registration-password2")
-    BUTTON_REGISTRATION = (By.CSS_SELECTOR, '[data-loading-text="Регистрация..."]')
+    BUTTON_REGISTRATION = (By.CSS_SELECTOR, '[name="registration_submit"]')
 
 

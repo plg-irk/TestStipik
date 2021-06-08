@@ -12,19 +12,16 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # проверка на корректный url адрес
-        print('self_url= ', self.url)
         assert "login" in self.url, "Login is not in url"
         assert True
 
     def should_be_login_form(self):
         # проверка что есть форма логина
-        print('self_form= ', self.url)
         self.is_element_present(*BasePageLocators.LOGIN_FORM), "Login form is not"
         assert True
 
     def should_be_register_form(self):
         # проверка что есть форма регистрации на странице
-        print('register_form= ', self.url)
         self.is_element_present(*BasePageLocators.REGISTER_FORM), "Register form is not"
         assert True
 
